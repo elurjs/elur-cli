@@ -1,6 +1,6 @@
 # @deijose/nix-cli
 
-CLI oficial para [Nix.js](https://github.com/DeijoseDevelop/nix-js). Genera componentes, páginas, stores y servicios con los templates correctos para tu tipo de proyecto.
+CLI oficial para [Nix.js](https://github.com/DeijoseDevelop/nix-js). Genera componentes, páginas, stores y servicios, y ejecuta los comandos de desarrollo, build y tests de tu proyecto.
 
 ## Instalación
 
@@ -16,6 +16,30 @@ npx nixjs add component Button
 - Un proyecto que use `@deijose/nix-js` o `@deijose/nix-ionic`
 
 ## Comandos
+
+### `nixjs dev`
+
+Inicia el servidor de desarrollo. Si tu `package.json` tiene un script `dev`, lo ejecuta con `npm run dev`; si no, corre `vite` directamente.
+
+```bash
+npx nixjs dev
+```
+
+### `nixjs build`
+
+Compila la aplicación para producción. Usa `npm run build` si existe, o `vite build` como fallback.
+
+```bash
+npx nixjs build
+```
+
+### `nixjs test`
+
+Ejecuta la suite de tests. Usa `npm run test` si existe, o `vitest` como fallback.
+
+```bash
+npx nixjs test
+```
 
 ### `nixjs add <type> <name>`
 
@@ -74,6 +98,16 @@ npx nixjs add store auth
 ```
 
 Genera `src/stores/auth.store.ts` con `createStore` y un estado inicial de ejemplo.
+
+## Cómo funciona el wrapper de ejecución
+
+La CLI prioriza los scripts definidos en tu `package.json`. Si el script no existe, ejecuta el binario correspondiente automáticamente:
+
+- `nixjs dev` → `npm run dev` → `vite`
+- `nixjs build` → `npm run build` → `vite build`
+- `nixjs test` → `npm run test` → `vitest`
+
+Esto permite que un proyecto Nix.js tenga una experiencia de comando única, sin abandonar Vite/Vitest.
 
 ## Licencia
 

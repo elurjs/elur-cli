@@ -1,6 +1,6 @@
 {
   "name": "@deijose/nix-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CLI for Nix.js — scaffolding components, pages, stores and services",
   "license": "MIT",
   "author": "Deiver Vasquez",
