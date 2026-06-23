@@ -1,0 +1,39 @@
+{
+  "name": "@deijose/nix-cli",
+  "version": "0.1.0",
+  "description": "CLI for Nix.js — scaffolding components, pages, stores and services",
+  "license": "MIT",
+  "author": "Deiver Vasquez",
+  "type": "module",
+  "keywords": [
+    "nix",
+    "nix-js",
+    "cli",
+    "scaffold",
+    "generator"
+  ],
+  "bin": {
+    "nixjs": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "kolorist": "^1.8.0",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/prompts": "^2.4.9",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
