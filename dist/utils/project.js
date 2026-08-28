@@ -22,10 +22,10 @@ export function readProjectType(root) {
         ...pkg.dependencies,
         ...pkg.devDependencies,
     };
-    if (allDeps["@deijose/nix-ionic"])
-        return "nix-ionic";
-    if (allDeps["@deijose/nix-js"])
-        return "nix-js";
+    if (allDeps["@elurjs/ionic"])
+        return "elur-ionic";
+    if (allDeps["@elurjs/core"])
+        return "elur";
     return null;
 }
 export function __dirname() {

@@ -26,12 +26,12 @@ export async function addCommand(type, name) {
     const t = type;
     const root = findProjectRoot();
     if (!root) {
-        console.error(red("No se encontró un package.json. ¿Estás en un proyecto Nix.js?"));
+        console.error(red("No se encontró un package.json. ¿Estás en un proyecto Elur?"));
         process.exit(1);
     }
     const projectType = readProjectType(root);
     if (!projectType) {
-        console.error(red("No se detectó @deijose/nix-js ni @deijose/nix-ionic en este proyecto."));
+        console.error(red("No se detectó @elurjs/core ni @elurjs/ionic en este proyecto."));
         process.exit(1);
     }
     const folder = path.join(root, folders[t]);

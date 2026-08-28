@@ -4,8 +4,8 @@ import { addCommand } from "./commands/add.js";
 import { runCommand } from "./commands/run.js";
 const program = new Command();
 program
-    .name("nixjs")
-    .description("CLI for Nix.js — scaffold components, pages, stores and services")
+    .name("elur")
+    .description("CLI for Elur — scaffold components, pages, stores and services")
     .version("0.1.2");
 program
     .command("add <type> <name>")

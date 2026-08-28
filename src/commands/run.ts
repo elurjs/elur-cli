@@ -30,7 +30,7 @@ function hasBinary(root: string, binary: string): boolean {
 export function runCommand(command: "dev" | "build" | "test") {
   const root = findProjectRoot();
   if (!root) {
-    console.error(red("No se encontró un package.json. ¿Estás en un proyecto Nix.js?"));
+    console.error(red("No se encontró un package.json. ¿Estás en un proyecto Elur?"));
     process.exit(1);
   }
 

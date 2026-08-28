@@ -7,7 +7,7 @@ function interpolate(template, vars) {
         .replace(/\{\{kebab-name\}\}/g, kebab)
         .replace(/\{\{fileName\}\}/g, vars.fileName);
 }
-const baseComponent = `import { html } from "@deijose/nix-js/template";
+const baseComponent = `import { html } from "@elurjs/core/template";
 
 export function {{Name}}() {
   return html\`
@@ -17,10 +17,10 @@ export function {{Name}}() {
   \`;
 }
 `;
-const ionicComponent = `import { html } from "@deijose/nix-js/template";
-import { NixComponent } from "@deijose/nix-js/lifecycle";
+const ionicComponent = `import { html } from "@elurjs/core/template";
+import { ElurComponent } from "@elurjs/core/lifecycle";
 
-export class {{Name}} extends NixComponent {
+export class {{Name}} extends ElurComponent {
   override render() {
     return html\`
       <div class="{{kebab-name}}">
@@ -30,7 +30,7 @@ export class {{Name}} extends NixComponent {
   }
 }
 `;
-const basePage = `import { html } from "@deijose/nix-js/template";
+const basePage = `import { html } from "@elurjs/core/template";
 
 export function {{Name}}Page() {
   return html\`
@@ -40,10 +40,10 @@ export function {{Name}}Page() {
   \`;
 }
 `;
-const ionicPage = `import { html } from "@deijose/nix-js/template";
-import { NixComponent } from "@deijose/nix-js/lifecycle";
+const ionicPage = `import { html } from "@elurjs/core/template";
+import { ElurComponent } from "@elurjs/core/lifecycle";
 
-export class {{Name}}Page extends NixComponent {
+export class {{Name}}Page extends ElurComponent {
   override render() {
     return html\`
       <ion-page class="{{kebab-name}}-page">
@@ -60,7 +60,7 @@ export class {{Name}}Page extends NixComponent {
   }
 }
 `;
-const store = `import { createStore } from "@deijose/nix-js";
+const store = `import { createStore } from "@elurjs/core";
 
 export const {{Name}}Store = createStore(
   {
@@ -96,13 +96,13 @@ const service = `export class {{Name}}Service {
 export const {{camelName}}Service = new {{Name}}Service();
 `;
 export const templates = {
-    "nix-js": {
+    "elur": {
         component: baseComponent,
         page: basePage,
         store,
         service,
     },
-    "nix-ionic": {
+    "elur-ionic": {
         component: ionicComponent,
         page: ionicPage,
         store,

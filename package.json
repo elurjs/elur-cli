@@ -1,19 +1,19 @@
 {
-  "name": "@deijose/nix-cli",
+  "name": "@elurjs/cli",
   "version": "0.1.2",
-  "description": "CLI for Nix.js — scaffolding components, pages, stores and services",
+  "description": "CLI for Elur — scaffolding components, pages, stores and services",
   "license": "MIT",
   "author": "Deiver Vasquez",
   "type": "module",
   "keywords": [
-    "nix",
-    "nix-js",
+    "elur",
+    "elur",
     "cli",
     "scaffold",
     "generator"
   ],
   "bin": {
-    "nixjs": "dist/index.js"
+    "elur": "dist/index.js"
   },
   "files": [
     "dist",

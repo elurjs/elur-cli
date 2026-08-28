@@ -1,86 +1,86 @@
-# @deijose/nix-cli
+# @elurjs/cli
 
-CLI oficial para [Nix.js](https://github.com/DeijoseDevelop/nix-js). Genera componentes, páginas, stores y servicios, y ejecuta los comandos de desarrollo, build y tests de tu proyecto.
+CLI oficial para [Elur](https://github.com/elurjs/elur). Genera componentes, páginas, stores y servicios, y ejecuta los comandos de desarrollo, build y tests de tu proyecto.
 
 ## Instalación
 
 No necesitas instalarlo globalmente. Usa `npx`:
 
 ```bash
-npx nixjs add component Button
+npx elur add component Button
 ```
 
 ## Requisitos
 
 - Node.js >= 18.0.0
-- Un proyecto que use `@deijose/nix-js` o `@deijose/nix-ionic`
+- Un proyecto que use `@elurjs/core` o `@elurjs/ionic`
 
 ## Comandos
 
-### `nixjs dev`
+### `elur dev`
 
 Inicia el servidor de desarrollo. Si tu `package.json` tiene un script `dev`, lo ejecuta con `npm run dev`; si no, corre `vite` directamente.
 
 ```bash
-npx nixjs dev
+npx elur dev
 ```
 
-### `nixjs build`
+### `elur build`
 
 Compila la aplicación para producción. Usa `npm run build` si existe, o `vite build` como fallback.
 
 ```bash
-npx nixjs build
+npx elur build
 ```
 
-### `nixjs test`
+### `elur test`
 
 Ejecuta la suite de tests. Usa `npm run test` si existe, o `vitest` como fallback.
 
 ```bash
-npx nixjs test
+npx elur test
 ```
 
-### `nixjs add <type> <name>`
+### `elur add <type> <name>`
 
 Genera un nuevo archivo en la carpeta correspondiente.
 
 | Tipo        | Carpeta de salida | Ejemplo                          |
 | ----------- | ----------------- | -------------------------------- |
-| `component` | `src/components/` | `npx nixjs add component Button` |
-| `page`      | `src/pages/`      | `npx nixjs add page Login`       |
-| `store`     | `src/stores/`     | `npx nixjs add store auth`       |
-| `service`   | `src/services/`   | `npx nixjs add service api`      |
+| `component` | `src/components/` | `npx elur add component Button` |
+| `page`      | `src/pages/`      | `npx elur add page Login`       |
+| `store`     | `src/stores/`     | `npx elur add store auth`       |
+| `service`   | `src/services/`   | `npx elur add service api`      |
 
 Las páginas también soportan rutas dinámicas:
 
 ```bash
-npx nixjs add page users/[id]
+npx elur add page users/[id]
 # genera src/pages/users/[id].ts
 ```
 
 ## Detección automática del proyecto
 
-La CLI detecta si tu proyecto usa `@deijose/nix-ionic` o `@deijose/nix-js` y elige el template adecuado:
+La CLI detecta si tu proyecto usa `@elurjs/ionic` o `@elurjs/core` y elige el template adecuado:
 
-- **Nix-Ionic**: genera componentes basados en `NixComponent` y páginas con `ion-page`.
-- **Nix.js base**: genera funciones simples que devuelven templates.
+- **Elur-Ionic**: genera componentes basados en `ElurComponent` y páginas con `ion-page`.
+- **Elur base**: genera funciones simples que devuelven templates.
 
 ## Ejemplos
 
-### Componente en proyecto Nix-Ionic
+### Componente en proyecto Elur-Ionic
 
 ```bash
-npx nixjs add component Button
+npx elur add component Button
 ```
 
 Genera `src/components/Button.ts`:
 
 ```ts
-import { html } from "@deijose/nix-js/template";
-import { NixComponent } from "@deijose/nix-js/lifecycle";
+import { html } from "@elurjs/core/template";
+import { ElurComponent } from "@elurjs/core/lifecycle";
 
-export class Button extends NixComponent {
+export class Button extends ElurComponent {
   override render() {
     return html`
       <div class="button">
@@ -94,7 +94,7 @@ export class Button extends NixComponent {
 ### Store
 
 ```bash
-npx nixjs add store auth
+npx elur add store auth
 ```
 
 Genera `src/stores/auth.store.ts` con `createStore` y un estado inicial de ejemplo.
@@ -103,11 +103,11 @@ Genera `src/stores/auth.store.ts` con `createStore` y un estado inicial de ejemp
 
 La CLI prioriza los scripts definidos en tu `package.json`. Si el script no existe, ejecuta el binario correspondiente automáticamente:
 
-- `nixjs dev` → `npm run dev` → `vite`
-- `nixjs build` → `npm run build` → `vite build`
-- `nixjs test` → `npm run test` → `vitest`
+- `elur dev` → `npm run dev` → `vite`
+- `elur build` → `npm run build` → `vite build`
+- `elur test` → `npm run test` → `vitest`
 
-Esto permite que un proyecto Nix.js tenga una experiencia de comando única, sin abandonar Vite/Vitest.
+Esto permite que un proyecto Elur tenga una experiencia de comando única, sin abandonar Vite/Vitest.
 
 ## Licencia
 

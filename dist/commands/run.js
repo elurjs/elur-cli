@@ -22,7 +22,7 @@ function hasBinary(root, binary) {
 export function runCommand(command) {
     const root = findProjectRoot();
     if (!root) {
-        console.error(red("No se encontró un package.json. ¿Estás en un proyecto Nix.js?"));
+        console.error(red("No se encontró un package.json. ¿Estás en un proyecto Elur?"));
         process.exit(1);
     }
     const runner = runners[command];

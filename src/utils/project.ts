@@ -13,7 +13,7 @@ export function findProjectRoot(cwd = process.cwd()): string | null {
   }
 }
 
-export function readProjectType(root: string): "nix-ionic" | "nix-js" | null {
+export function readProjectType(root: string): "elur-ionic" | "elur" | null {
   const pkgPath = path.join(root, "package.json");
   if (!fs.existsSync(pkgPath)) return null;
   const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8")) as {
@@ -24,8 +24,8 @@ export function readProjectType(root: string): "nix-ionic" | "nix-js" | null {
     ...pkg.dependencies,
     ...pkg.devDependencies,
   };
-  if (allDeps["@deijose/nix-ionic"]) return "nix-ionic";
-  if (allDeps["@deijose/nix-js"]) return "nix-js";
+  if (allDeps["@elurjs/ionic"]) return "elur-ionic";
+  if (allDeps["@elurjs/core"]) return "elur";
   return null;
 }
 
