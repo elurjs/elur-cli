@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 export function findProjectRoot(cwd = process.cwd()): string | null {
   let dir = cwd;
@@ -27,8 +26,4 @@ export function readProjectType(root: string): "elur-ionic" | "elur" | null {
   if (allDeps["@elurjs/ionic"]) return "elur-ionic";
   if (allDeps["@elurjs/core"]) return "elur";
   return null;
-}
-
-export function __dirname(): string {
-  return path.dirname(fileURLToPath(import.meta.url));
 }

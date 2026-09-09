@@ -18,7 +18,3 @@ export function toKebabCase(input: string): string {
 export function toFilePath(input: string): string {
   return input.replace(/\[|\]/g, "");
 }
-
-export function toClassName(input: string): string {
-  return toPascalCase(input) + "Page";
-}

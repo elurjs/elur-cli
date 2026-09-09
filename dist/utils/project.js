@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 export function findProjectRoot(cwd = process.cwd()) {
     let dir = cwd;
     while (true) {
@@ -27,8 +26,5 @@ export function readProjectType(root) {
     if (allDeps["@elurjs/core"])
         return "elur";
     return null;
-}
-export function __dirname() {
-    return path.dirname(fileURLToPath(import.meta.url));
 }
 //# sourceMappingURL=project.js.map

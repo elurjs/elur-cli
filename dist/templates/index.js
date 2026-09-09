@@ -95,7 +95,7 @@ const service = `export class {{Name}}Service {
 
 export const {{camelName}}Service = new {{Name}}Service();
 `;
-export const templates = {
+const templates = {
     "elur": {
         component: baseComponent,
         page: basePage,

@@ -16,7 +16,4 @@ export function toKebabCase(input) {
 export function toFilePath(input) {
     return input.replace(/\[|\]/g, "");
 }
-export function toClassName(input) {
-    return toPascalCase(input) + "Page";
-}
 //# sourceMappingURL=naming.js.map

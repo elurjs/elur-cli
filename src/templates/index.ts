@@ -1,6 +1,6 @@
 import { toPascalCase, toKebabCase } from "../utils/naming.js";
 
-export interface TemplateVars {
+interface TemplateVars {
   name: string;
   fileName: string;
 }
@@ -108,7 +108,7 @@ const service = `export class {{Name}}Service {
 export const {{camelName}}Service = new {{Name}}Service();
 `;
 
-export const templates: Record<
+const templates: Record<
   "elur" | "elur-ionic",
   Record<"component" | "page" | "store" | "service", string>
 > = {
