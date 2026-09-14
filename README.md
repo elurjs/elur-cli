@@ -99,6 +99,21 @@ npx elur add store auth
 
 Genera `src/stores/auth.store.ts` con `createStore` y un estado inicial de ejemplo.
 
+### `elur ui` — componentes copiables (Elur UI)
+
+Copia fuentes de componentes Elur UI a tu proyecto (modelo shadcn: el código copiado es tuyo). Lee `registry.json`, resuelve dependencias entre archivos e instala solo los paquetes que cada componente necesita (`@elurjs/ui-brain` + las máquinas `@zag-js/*` de los componentes headless).
+
+```bash
+npx elur ui init            # copia tokens.css, ui.css, icons.ts e index.ts a src/ui/
+npx elur ui add dialog tabs # copia componentes + instala sus machineDeps
+npx elur ui add --all       # todos los componentes
+npx elur ui list            # catálogo disponible en el registry
+```
+
+Opciones: `--dir <dir>` (destino, default `src/ui`), `--force` (sobreescribir existentes), `--registry <path|url>` (registry local o URL — también via `ELUR_REGISTRY` o `"elur": { "registry": "..." }` en package.json; sin nada usa el repo `elurjs/registry`).
+
+Los componentes copiados se estilizan con `[data-elur]` + `tokens.css`/`ui.css` — importa ambos en tu app.
+
 ## Cómo funciona el wrapper de ejecución
 
 La CLI prioriza los scripts definidos en tu `package.json`. Si el script no existe, ejecuta el binario correspondiente automáticamente:

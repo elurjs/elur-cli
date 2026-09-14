@@ -1,6 +1,6 @@
 {
   "name": "@elurjs/cli",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "CLI for Elur — scaffolding components, pages, stores and services",
   "license": "MIT",
   "author": "Deiver Vasquez",
