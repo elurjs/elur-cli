@@ -122,7 +122,11 @@ function installDeps(root: string, deps: string[]) {
 }
 
 function targetDir(root: string, opts: UiOptions): string {
-  return path.resolve(root, opts.dir ?? "src/ui");
+  if (opts.dir) return path.resolve(root, opts.dir);
+  // Elur Kit solo espeja src/app e src/islands al transformar — los
+  // componentes copiados deben vivir dentro de app para que los imports
+  // relativos sigan resolviendo desde .elur/transformed.
+  return path.resolve(root, pkgHasDep(root, "@elurjs/kit") ? "src/app/ui" : "src/ui");
 }
 
 async function copyEntry(
